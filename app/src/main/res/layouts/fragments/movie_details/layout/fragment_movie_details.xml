@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="io.vucos.mobile.presentation.screens.movie_details.MovieDetailsViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/details_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/moviePosterImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:scaleType="centerCrop"
+                        app:imageUrl="@{viewModel.posterUrl}" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="450dp"
+                        android:background="@drawable/gradient_overlay"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="bottom"
+                        android:padding="16dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_marginBottom="16dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_marginEnd="16dp">
+
+                                <ToggleButton
+                                    android:id="@+id/dislikeToggle"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/dislike_selector"
+                                    android:textOn=""
+                                    android:textOff=""
+                                    android:layout_marginBottom="4dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{viewModel.averageDislikes}"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_marginEnd="16dp">
+
+                                <ToggleButton
+                                    android:id="@+id/playToggle"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/playlist_play_icon"
+                                    android:textOn=""
+                                    android:textOff=""
+                                    android:layout_marginBottom="4dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <ToggleButton
+                                    android:id="@+id/likeToggle"
+                                    android:layout_width="48dp"
+                                    android:layout_height="48dp"
+                                    android:background="@drawable/like_selector"
+                                    android:textOn=""
+                                    android:textOff=""
+                                    android:layout_marginBottom="4dp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{viewModel.averageLikes}"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginBottom="16dp">
+
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/plus7Icon"
+                                android:src="@drawable/parental_conrols_7_years_and_older"
+                                android:visibility="@{viewModel.isPlus7Audience ? View.VISIBLE : View.GONE}" />
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/plus13Icon"
+                                android:src="@drawable/parental_conrols_13_years_and_older"
+                                android:visibility="@{viewModel.isPlus13Audience ? View.VISIBLE : View.GONE}" />
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/plus18Icon"
+                                android:src="@drawable/parental_conrols_18_years_and_older"
+                                android:visibility="@{viewModel.isPlus18Audience ? View.VISIBLE : View.GONE}" />
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/isViolenceAndFearAudienceIcon"
+                                android:src="@drawable/parental_conrols_violence"
+                                android:visibility="@{viewModel.isViolenceAndFearAudience ? View.VISIBLE : View.GONE}" />
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/isAdultAudience"
+                                android:src="@drawable/parental_conrols_sexuality"
+                                android:visibility="@{viewModel.isAdultAudience ? View.VISIBLE : View.GONE}" />
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/isNegativityAudience"
+                                android:src="@drawable/parental_conrols_negative_sample"
+                                android:visibility="@{viewModel.isNegativityAudience ? View.VISIBLE : View.GONE}" />
+
+                            <ImageView
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_marginEnd="8dp"
+                                android:id="@+id/isGeneralAudience"
+                                android:src="@drawable/parental_conrols_general_audience"
+                                android:visibility="@{viewModel.isGeneralAudience ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/movieTitleTextView"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.title}"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:background="@drawable/release_date_border"
+                            android:id="@+id/movieYearTextView"
+                            android:layout_width="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.platformReleaseYear.toString()}"
+                            android:textColor="@color/white"
+                            android:textSize="9sp"
+                            android:layout_marginBottom="10dp"/>
+
+                        <TextView
+                            android:id="@+id/movieDetailTitle1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="@{@string/platform_remove_date(viewModel.platformRemoveDate)}"
+                            android:textColor="@color/white"
+                            android:textSize="9sp"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="@{viewModel.deviceTypes}"
+                            android:textColor="@color/white"
+                            android:textSize="9sp"
+                            android:visibility="@{viewModel.deviceTypes.empty ? View.GONE : View.VISIBLE}"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TextView
+                            android:id="@+id/movieDetailTitle3"
+                            android:layout_width="match_parent"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:layout_height="wrap_content"
+                            android:text="@{@string/watching_duration(viewModel.watchedDuration)}"
+                            android:textColor="@color/white"
+                            android:textSize="9sp"
+                            android:layout_marginBottom="8dp"/>
+                        <ProgressBar
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/watchProgress"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="250dp"
+                            android:layout_height="2dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginBottom="10dp"
+                            android:progress="@{viewModel.watchProgress}"
+                            android:max="100"/>
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginEnd="8dp"
+                            app:imageUrl="@{viewModel.qualityDefinitions.size() > 0 ? viewModel.qualityDefinitions.get(0).logoUrl : ``}"
+                            android:visibility="@{viewModel.qualityDefinitions.size() > 0 ? View.VISIBLE : View.GONE}"
+                            tools:src="@tools:sample/avatars" />
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:visibility="@{viewModel.isResumePlay ? View.GONE : View.VISIBLE}">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/resumeButton"
+                                    android:layout_width="match_parent"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:layout_height="wrap_content"
+                                    android:text="İZLE"
+                                    app:icon="@drawable/exo_icon_play"
+                                    app:iconGravity="end"
+                                    android:textSize="10dp"
+                                    app:backgroundTint="@color/flat_yellow_1"
+                                    style="@style/Widget.MaterialComponents.Button" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:visibility="@{viewModel.isResumePlay ? View.VISIBLE : View.GONE}">
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/watchFromBeginningButton"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:text="Baştan İzle"
+                                    android:textSize="10dp"
+                                    app:icon="@drawable/exo_icon_play"
+                                    app:iconGravity="end"
+                                    app:backgroundTint="@color/flat_yellow_1"
+                                    style="@style/Widget.MaterialComponents.Button"
+                                    android:layout_marginEnd="8dp"/>
+
+                                <com.google.android.material.button.MaterialButton
+                                    android:id="@+id/watchButton"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:text="İzle"
+                                    android:textSize="10dp"
+                                    app:icon="@drawable/exo_icon_play"
+                                    app:iconGravity="end"
+                                    app:backgroundTint="@color/flat_yellow_1"
+                                    style="@style/Widget.MaterialComponents.Button"
+                                    android:layout_marginStart="8dp"/>
+
+                            </LinearLayout>
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/description_background_gradient"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+
+                    <TextView
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:text="@{viewModel.description}"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="@{@string/director_format(viewModel.director)}"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/cast_format(viewModel.cast)}"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/transparent"
+                    app:tabIndicatorColor="@color/white"
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabTextColor="@color/flat_yellow_1">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Benzerler" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sana Özel" />
+
+
+                </com.google.android.material.tabs.TabLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:layout_marginBottom="50dp"
+                        android:id="@+id/viewPager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </FrameLayout>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>>
+
+    </LinearLayout>
+</layout>

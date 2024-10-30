@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="io.vucos.mobile.presentation.screens.signup.TermsOfServiceAndPrivacyPolicyViewModel" />
+        <variable
+            name="fragment"
+            type="io.vucos.mobile.presentation.screens.signup.TermsOfServiceAndPrivacyPolicyFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/vucos_screen_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/chevron_backward"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="0dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:layout_height="wrap_content"
+            android:text="Terms of Service\nand Privacy Policy"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/vucos_edittext_hint_color"
+            android:gravity="center_vertical"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toEndOf="@id/backButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/backButton"
+            app:layout_constraintBottom_toBottomOf="@id/backButton"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/backButton"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/background_color"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bu Gizlilik Bildirimi; kişisel bilgileriniz dâhil olmak üzere belli bazı bilgilerin VUCOS hizmetiyle ilişkili olarak (VUCOS) toplanması, kullanılması ve ifşasına dair seçeneklerinizi ve uygulamalarımızı açıklar."
+                    android:textSize="16sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/white_fifty_opacity"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bize Ulaşın"
+                    android:textColor="@color/vucos_top_title"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Hesabınız ile ilgili genel sorularınız varsa veya yardım almak için müşteri hizmetleri ile iletişim kurmak istiyorsanız lütfen help.netflix.com adresindeki çevrimiçi yardım merkezimizi ziyaret edin. Özellikle bu Gizlilik Bildirimi ile veya kişisel bilgilerinizin, çerezlerin veya benzer teknolojilerin tarafımızdan kullanımı ile ilgili sorularınız için, lütfen Veri Koruma Sorumlumuz/Gizlilik Ofisi ile privacy@vucos.io e-posta adresi üzerinden iletişime geçin. Kişisel bilgilerinizin veri sorumlusu Netflix International B.V.dir. Yardım alma amacıyla bizimle irtibata geçmeniz hâlinde, iki tarafın da güvenliği adına talebinizi karşılamadan önce kimliğinizi doğrulamamız gerekebileceğini lütfen dikkate alınız."
+                    android:textSize="16sp"
+                    android:textColor="@color/white_fifty_opacity"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Bilgilerin Toplanması"
+                    android:textColor="@color/vucos_top_title"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_marginBottom="60dp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sizden bazı bilgileri elde etmekte ve saklamaktayız, örneğin:   Bize sağladığınız bilgiler\n\nAşağıdakiler dâhil olmak üzere bize verdiğiniz bilgileri topluyoruz:  \n\nAdınız, e-posta adresiniz, ödeme yönteminiz/yöntemleriniz, telefon numaranız ve kullandığınız diğer tanımlayıcılar (örneğin oyun içinde kullanılan ad). Bu bilgiler çeşitli yöntemlerle toplanmaktadır. Hizmetimizi kullanırken sunmanız, müşteri hizmetleri birimimizle etkileşime girmeniz ya da anket veya pazarlama amaçlı tanıtım etkinliklerine dâhil olmanız gibi durumlar bu yöntemler arasında sayılabilir.  Puanlama yapmayı tercih etmeniz hâlinde sunduğunuz bilgiler, kişisel tercihleriniz, hesap ayarları, (web sitemizin &quot;Hesap&quot; kısmında ayarlanan tercihler de dâhil olmak üzere) ya da hizmetimiz aracılığıyla veya başka yerde sunduğunuz diğer bilgiler de bu kapsamdadır."
+                    android:textSize="16sp"
+                    android:textColor="@color/white_fifty_opacity"/>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

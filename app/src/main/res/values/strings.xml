@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">vucos_app</string>
+    <string name="terms_and_privacy_text">By tapping Continue buttons I agree to the Terms of Service and Privacy Policy.</string>
+    <string name="error_connection">Unable to fetch data, please check your internet connection and try again.</string>
+    <string name="error_service">API service is not responding at the moment, please try again later.</string>
+    <string name="error_unknown">Unknown error occurred.</string>
+    <string name="unknown_error">Unknown error occurred.</string>
+    <string name="ok">Ok</string>
+    <string name="bottom_nav_title_1">Home</string>
+    <string name="bottom_nav_title_2">Live TV</string>
+    <string name="bottom_nav_title_3">Search</string>
+    <string name="bottom_nav_title_6">For You</string>
+    <string name="bottom_nav_title_4">Notifications</string>
+    <string name="bottom_nav_title_5">My List</string>
+    <string name="platform_remove_date">Platformdan kalkış tarihi: %s</string>
+    <string name="total_duration">Toplam Süre: %s</string>
+    <string name="watching_duration">İzlenen Süre: %s</string>
+    <string name="description">Açıklama</string>
+    <string name="director_format">Yönetmen: %s</string>
+    <string name="cast_format">Oyuncular: %s</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="genre"
+            type="io.vucos.mobile.domain.model.resources.genres.GenresResponse" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="@color/vucos_edittext_background"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:gravity="center"
+            android:text="@{genre.name}"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/white"
+            android:background="@color/vucos_edittext_background"
+            android:textSize="16sp"
+            tools:text="Action" />
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

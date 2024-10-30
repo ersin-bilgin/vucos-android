@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="io.vucos.mobile.presentation.screens.main.SplashFragment"
+        android:label="SplashFragment">
+        <action
+            android:id="@+id/action_splashFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="io.vucos.mobile.presentation.screens.welcome.WelcomeFragment"
+        android:label="WelcomeFragment">
+        <action
+            android:id="@+id/action_welcomeFragment_to_signinFragment"
+            app:destination="@id/signinFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_welcomeFragment_to_signupFragment"
+            app:destination="@id/signupFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="io.vucos.mobile.presentation.screens.signin.SigninFragment"
+        android:label="SigninFragment">
+        <action
+            android:id="@+id/action_signinFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_signinFragment_to_emailSigninFragment"
+            app:destination="@id/emailSigninFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_signinFragment_to_whoWillWatchFragment"
+            app:destination="@id/whoWillWatchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailSigninFragment"
+        android:name="io.vucos.mobile.presentation.screens.signin.EmailSigninFragment"
+        android:label="EmailSigninFragment">
+        <action
+            android:id="@+id/action_emailSigninFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_emailSigninFragment_to_whoWillWatchFragment"
+            app:destination="@id/whoWillWatchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="io.vucos.mobile.presentation.screens.loading.LoadingFragment"
+        android:label="LoadingFragment">
+        <argument
+            android:name="destinationId"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <action
+            android:id="@+id/action_loadingFragment_to_whoWillWatchFragment"
+            app:destination="@id/whoWillWatchFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/whoWillWatchFragment"
+        android:name="io.vucos.mobile.presentation.screens.who_will_watch.WhoWillWatchFragment"
+        android:label="WhoWillWatchFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        >
+        <action
+            android:id="@+id/action_fragmentWhoWillWatch_to_mainContentFragment"
+            app:destination="@id/mainContentFragment" />
+        <action
+            android:id="@+id/action_fragmentWhoWillWatch_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
+    </fragment>
+
+
+    <!-- -->
+
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="io.vucos.mobile.presentation.screens.signup.SignupFragment"
+        android:label="SigninFragment">
+        <action
+            android:id="@+id/action_signupFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_signupFragment_to_emailSignupFragment"
+            app:destination="@id/emailSignupFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_signupFragment_to_termsOfServiceAndPrivacyPolicyFragment"
+            app:destination="@id/termsOfServiceAndPrivacyPolicyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/emailSignupFragment"
+        android:name="io.vucos.mobile.presentation.screens.signin.EmailSigninFragment"
+        android:label="EmailSigninFragment">
+        <action
+            android:id="@+id/action_emailSignupFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/termsOfServiceAndPrivacyPolicyFragment"
+        android:name="io.vucos.mobile.presentation.screens.signup.TermsOfServiceAndPrivacyPolicyFragment"
+        android:label="TermsOfServiceAndPrivacyPolicyFragment"
+        tools:layout="@layout/fragment_terms_and_privacy_policy" />
+
+    <!-- -->
+    <fragment
+        android:id="@+id/mainContentFragment"
+        android:name="io.vucos.mobile.presentation.screens.home_main.HomeMainContentFragment"
+        android:label="MainContentFragment"
+        tools:layout="@layout/fragment_home_main_content" />
+</navigation>
